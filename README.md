@@ -1,7 +1,7 @@
 # Symphony
 >  System for Yielding Multi-dimensional Problem Heuristic Optimization and Navigation
 
-![GitHub](https://img.shields.io/github/license/velocitatem/Symphony) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/velocitatem/Symphony) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/velocitatem/Symphony/CMake) ![GitHub issues](https://img.shields.io/github/issues-raw/velocitatem/Symphony) ![GitHub pull requests](https://img.shields.io/github/issues-pr/velocitatem/Symphony)
+![GitHub](https://img.shields.io/github/license/velocitatem/Symphony) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/velocitatem/Symphony) ![GitHub issues](https://img.shields.io/github/issues-raw/velocitatem/Symphony) ![GitHub pull requests](https://img.shields.io/github/issues-pr/velocitatem/Symphony)
 ![GitHub contributors](https://img.shields.io/github/contributors/velocitatem/Symphony) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/velocitatem/Symphony) ![GitHub last commit](https://img.shields.io/github/last-commit/velocitatem/Symphony)
 
 This is a C++ project focused on implementing search algorithms for rational agent problems. It provides a flexible, extensible framework for defining states, actions, and search strategies, along with example problems and test cases to ensure correctness and performance.
