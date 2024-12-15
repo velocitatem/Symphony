@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.29)
-project(ai_rational_agents)
+project(symphony)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(ai_rational_agents SHARED
+add_library(symphony SHARED
         src/search.cpp
         src/utils.cpp)
 
-target_include_directories(ai_rational_agents PUBLIC include)
+target_include_directories(symphony PUBLIC include)
 
 enable_testing()
 

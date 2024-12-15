@@ -1,2 +1,2 @@
 add_executable(runTests tests.cpp)
-target_link_libraries(runTests ai_rational_agents gtest gtest_main)
+target_link_libraries(runTests symphony gtest gtest_main)

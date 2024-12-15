@@ -1,2 +1,2 @@
 add_executable(examples main.cpp)
-target_link_libraries(examples ai_rational_agents)
+target_link_libraries(examples symphony)

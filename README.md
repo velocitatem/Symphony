@@ -65,4 +65,4 @@ Contributions are welcome! If you find issues or want to add features, feel free
 
 ---
 
-**ai_rational_agents** is designed to be a springboard for further exploration into rational agents, search algorithms, and AI problem-solving techniques. With its clean architecture and example-driven approach, you can quickly adapt and extend it for your own research or educational projects.
+**symphony** is designed to be a springboard for further exploration into rational agents, search algorithms, and AI problem-solving techniques. With its clean architecture and example-driven approach, you can quickly adapt and extend it for your own research or educational projects.

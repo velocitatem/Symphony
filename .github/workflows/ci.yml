@@ -1,0 +1,93 @@
+name: C++ CI
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+permissions:
+  checks: write
+  pull-requests: write
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies (CMake and Doxygen)
+        run: |
+          sudo apt-get update
+          for pkg in \
+            "cmake" \
+            "g++" \
+            "lcov" \
+            "libboost-all-dev" \
+            "libgtest-dev" \
+            "doxygen" \
+            sudo apt-get install -y $pkg || exit 1
+          done
+
+      - name: Build the project
+        run: |
+          mkdir build
+          cd build
+          # Adding CMAKE_PREFIX_PATH to help CMake locate JsonCpp
+          cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_PREFIX_PATH="/usr/lib/x86_64-linux-gnu/cmake/jsoncpp" ..
+          make
+
+      - name: Run tests
+        run: ./build/runTests --gtest_output="xml:test-results.xml"
+
+      - name: Generate code coverage report
+        run: |
+          cd build
+          lcov --capture --directory . --output-file coverage.info
+          lcov --remove coverage.info '/usr/*' --output-file coverage.info
+          lcov --list coverage.info
+
+      - name: Upload code coverage report to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: build/coverage.info
+          flags: unittests
+          name: C++ CI Coverage
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: "test-results.xml"
+        continue-on-error: true
+
+      - name: Compile and Publish Doxygen Documentation
+        run: |
+          mkdir docs
+          doxygen Doxyfile
+          mv html docs/
+        env:
+          CI: true
+
+      - name: Deploy Documentation to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/html
+
+      - name: 'Upload Artifact'
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CellViz
+          path: ./build/CellViz
+          retention-days: 5
+          continue-on-error: true
