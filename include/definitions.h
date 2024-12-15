@@ -18,7 +18,7 @@ public:
 class Action { // abstract class for actions
 public:
     Action() {}
-    Action(std::pmr::string name, double cost, State *precondition, State *effect) : name(name), cost(cost), precondition(precondition), effect(effect) {}
+    Action(std::string name, double cost, State *precondition, State *effect) : name(name), cost(cost), precondition(precondition), effect(effect) {}
     virtual ~Action() {}
     std::pmr::string name;
     double cost;

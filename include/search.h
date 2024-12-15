@@ -7,8 +7,8 @@
 
 
 #include <map>
-
 #include "definitions.h"
+#include <memory>
 
 class Node {
 public:
@@ -24,27 +24,22 @@ class Search {
 public:
     Search(Problem *problem) : problem(problem) {}
     virtual ~Search() {}
-    virtual Node *search() = 0;
+    virtual std::shared_ptr<Node> search() = 0;
     Problem *problem;
+};
+
+class Solution {
+public:
+    Solution(Node *node) : node(node) {}
+    void print();
+    Node *node;
 };
 
 class BreadthFirstSearch : public Search {
 public:
     BreadthFirstSearch(Problem *problem) : Search(problem) {}
-    Node *search() override;
+    std::shared_ptr<Node> search() override;
     ~BreadthFirstSearch();
-};
-
-class UniformCostSearch : public Search {
-public:
-    UniformCostSearch(Problem *problem) : Search(problem) {}
-    Node *search() override;
-};
-
-class AStar : public Search {
-public:
-    AStar(Problem *problem) : Search(problem) {}
-    Node *search() override;
 };
 
 
