@@ -30,7 +30,7 @@ jobs:
             "lcov" \
             "libboost-all-dev" \
             "libgtest-dev" \
-            "doxygen" \
+            "doxygen"
             sudo apt-get install -y $pkg || exit 1
           done
 
@@ -70,9 +70,7 @@ jobs:
 
       - name: Compile and Publish Doxygen Documentation
         run: |
-          mkdir docs
           doxygen Doxyfile
-          mv html docs/
         env:
           CI: true
 
