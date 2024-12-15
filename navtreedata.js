@@ -25,6 +25,13 @@
 var NAVTREE =
 [
   [ "Symphony", "index.html", [
+    [ "Introduction", "index.html#intro", null ],
+    [ "Getting Started", "index.html#getting_started", [
+      [ "Prerequisites", "index.html#prerequisites", null ],
+      [ "Building the Project", "index.html#build", null ]
+    ] ],
+    [ "Extending the Project", "index.html#extending", null ],
+    [ "Contributing", "index.html#contributing", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

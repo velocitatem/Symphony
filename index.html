@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Symphony: Main Page</title>
+<title>Symphony: Symphony</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,16 +95,66 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Symphony Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Symphony </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="intro"></a>
+Introduction</h1>
+<p><b>Symphony</b> (System for Yielding Multi-dimensional <a class="el" href="classProblem.html" title="Represents an abstract problem that needs to be solved.">Problem</a> Heuristic Optimization and Navigation) is a C++ project focused on implementing search algorithms for rational agent problems.</p>
+<p>It provides a flexible, extensible framework for defining states, actions, and search strategies, along with example problems and test cases to ensure correctness and performance.</p>
+<p>The inspiration for this project is drawn from a university course on Artificial Intelligence, where students learn about rational agents, search algorithms, and problem-solving techniques. By providing a structured, modular codebase, Symphony aims to help students and enthusiasts understand and experiment with these concepts in a practical, hands-on way.</p>
+<hr  />
+<p><img src="https://img.shields.io/github/license/velocitatem/Symphony" alt="GitHub" class="inline"/> <img src="https://img.shields.io/github/v/release/velocitatem/Symphony" alt="GitHub release (latest by date)" class="inline"/> <img src="https://img.shields.io/github/issues-raw/velocitatem/Symphony" alt="GitHub issues" class="inline"/> <img src="https://img.shields.io/github/issues-pr/velocitatem/Symphony" alt="GitHub pull requests" class="inline"/> <img src="https://img.shields.io/github/contributors/velocitatem/Symphony" alt="GitHub contributors" class="inline"/> <img src="https://img.shields.io/github/commit-activity/m/velocitatem/Symphony" alt="GitHub commit activity" class="inline"/> <img src="https://img.shields.io/github/last-commit/velocitatem/Symphony" alt="GitHub last commit" class="inline"/></p>
+<hr  />
+<h1><a class="anchor" id="getting_started"></a>
+Getting Started</h1>
+<p>To get started with Symphony, follow these steps:</p>
+<h2><a class="anchor" id="prerequisites"></a>
+Prerequisites</h2>
+<ul>
+<li><b>C++20 Compiler</b>: Ensure you have a modern C++ compiler that supports C++20 (e.g., <code>g++</code> &gt;= 10 or <code>clang++</code> &gt;= 12).</li>
+<li><b>CMake (3.29 or newer)</b>: Used for building the project.</li>
+<li><b>GoogleTest Library</b> (optional for running tests): Make sure <code>gtest</code> and <code>gtest_main</code> libraries are installed on your system, or use the provided configuration if you have them in your environment.</li>
+</ul>
+<h2><a class="anchor" id="build"></a>
+Building the Project</h2>
+<ol type="1">
+<li><b>Clone the Repository</b>:</li>
+<li><p class="startli"><b>Configure and Build</b>: </p><div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+</div><!-- fragment --><p class="startli">After building, the executables will be located in the build directory:</p>
+</li>
+</ol>
+<hr  />
+<h1><a class="anchor" id="extending"></a>
+Extending the Project</h1>
+<ul>
+<li><b>Add New Problems</b>: Create classes extending <code><a class="el" href="classProblem.html" title="Represents an abstract problem that needs to be solved.">Problem</a></code> and <code><a class="el" href="classState.html" title="Represents an abstract state in a problem.">State</a></code>, defining domain-specific logic, actions, and heuristics.</li>
+<li><b>Implement Additional <a class="el" href="classSearch.html">Search</a> Algorithms</b>: Extend <code><a class="el" href="classSearch.html">Search</a></code> with new search strategies (e.g., <code>DepthFirstSearch</code>, <code>UniformCostSearch</code>, <code>AStarSearch</code>) and integrate them into the problem-solving pipeline.</li>
+<li><b>Additional Testing and CI</b>: Add more test cases and integrate Continuous Integration (CI) to ensure code quality and maintainability.</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="contributing"></a>
+Contributing</h1>
+<p>Contributions are welcome! If you find issues or want to add features, feel free to:</p>
+<ol type="1">
+<li>Fork the repository</li>
+<li>Create a new branch (<code>git checkout -b feature/my-feature</code>)</li>
+<li>Commit your changes (&lsquo;git commit -am 'Add my feature&rsquo;<code>)</code></li>
+<li><code>Push the branch (</code>git push origin feature/my-feature`)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<hr  />
+<p>Symphony is designed to be a springboard for further exploration into rational agents, search algorithms, and AI problem-solving techniques. With its clean architecture and example-driven approach, you can quickly adapt and extend it for your own research or educational projects. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Dec 15 2024 20:32:57 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Dec 15 2024 20:42:32 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
