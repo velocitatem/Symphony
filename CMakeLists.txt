@@ -3,18 +3,14 @@ project(ai_rational_agents)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(ai_rational_agents main.cpp
-        lib/interface/definitions.h
-        lib/interface/search.h
-        lib/search.cpp)
+add_library(ai_rational_agents SHARED
+        src/search.cpp
+        src/utils.cpp)
 
+target_include_directories(ai_rational_agents PUBLIC include)
 
-# now for tests
+enable_testing()
 
-add_executable(runTests tests/tests.cpp
-        lib/interface/definitions.h
-        lib/interface/search.h
-        lib/search.cpp)
+add_subdirectory(tests)
+add_subdirectory(examples)
 
-# Link the Google Test framework
-target_link_libraries(runTests gtest gtest_main)

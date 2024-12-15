@@ -3,8 +3,8 @@
 //
 
 #include <gtest/gtest.h>
-#include "../lib/interface/definitions.h"
-#include "../lib/interface/search.h"
+#include "definitions.h"
+#include "search.h"
 
 
 
@@ -70,14 +70,39 @@ TEST(Problems, VacuumCleaner) {
 
 TEST(Search, BreadthFirstSearch) {
     VacuumCleaner vacuum_cleaner;
-    vacuum_cleaner.initial_state_->print();
-    BreadthFirstSearch breadthFirstSearch(&vacuum_cleaner);
-    auto *node = breadthFirstSearch.search();
+
+    auto *search = create_search(BREADTH_FIRST_SEARCH, &vacuum_cleaner);
+    auto *node = search->search();
+
     bool dirty0 = dynamic_cast<VacuumState *>(node->state)->dirty0;
     bool dirty1 = dynamic_cast<VacuumState *>(node->state)->dirty1;
     EXPECT_FALSE(dirty0);
     EXPECT_FALSE(dirty1);
-    node->state->print();
+}
+
+
+TEST(Search, UniformCostSearch) {
+    VacuumCleaner vacuum_cleaner;
+
+    auto *search = create_search(UNIFORM_COST_SEARCH, &vacuum_cleaner);
+    auto *node = search->search();
+
+    bool dirty0 = dynamic_cast<VacuumState *>(node->state)->dirty0;
+    bool dirty1 = dynamic_cast<VacuumState *>(node->state)->dirty1;
+    EXPECT_FALSE(dirty0);
+    EXPECT_FALSE(dirty1);
+}
+
+TEST(Search, AStar) {
+    VacuumCleaner vacuum_cleaner;
+
+    auto *search = create_search(A_STAR, &vacuum_cleaner);
+    auto *node = search->search();
+
+    bool dirty0 = dynamic_cast<VacuumState *>(node->state)->dirty0;
+    bool dirty1 = dynamic_cast<VacuumState *>(node->state)->dirty1;
+    EXPECT_FALSE(dirty0);
+    EXPECT_FALSE(dirty1);
 }
 
 int main(int argc, char **argv) {

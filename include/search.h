@@ -6,6 +6,7 @@
 #define SEARCH_H
 
 
+#include <map>
 
 #include "definitions.h"
 
@@ -27,15 +28,35 @@ public:
     Problem *problem;
 };
 
-
 class BreadthFirstSearch : public Search {
 public:
     BreadthFirstSearch(Problem *problem) : Search(problem) {}
     Node *search() override;
     ~BreadthFirstSearch();
-
-
 };
+
+class UniformCostSearch : public Search {
+public:
+    UniformCostSearch(Problem *problem) : Search(problem) {}
+    Node *search() override;
+};
+
+class AStar : public Search {
+public:
+    AStar(Problem *problem) : Search(problem) {}
+    Node *search() override;
+};
+
+
+
+
+enum SearchAlgorithmIndex {
+    BREADTH_FIRST_SEARCH,
+    UNIFORM_COST_SEARCH,
+    A_STAR
+};
+
+Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *problem);
 
 
 
