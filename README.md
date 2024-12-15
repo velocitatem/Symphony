@@ -26,7 +26,7 @@ The inspiration is drawn from a university course on Artificial Intelligence, wh
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/ai_rational_agents.git
+   git clone https://github.com/velocitatem/Symphony
    cd ai_rational_agents
    ```
 
@@ -38,8 +38,6 @@ The inspiration is drawn from a university course on Artificial Intelligence, wh
    ```
 
    After building, the executables will be located in the build directory:
-    - `ai_rational_agents` (main project executable)
-    - `runTests` (test runner)
 
 
 ## Extending the Project
