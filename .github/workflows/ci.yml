@@ -44,11 +44,11 @@ jobs:
           make
 
       - name: Run tests
-        run: ./build/runTests --gtest_output="xml:test-results.xml"
+        run: ./build/tests/runTests --gtest_output="xml:test-results.xml"
 
       - name: Generate code coverage report
         run: |
-          cd build
+          cd build/tests
           lcov --capture --directory . --output-file coverage.info
           lcov --remove coverage.info '/usr/*' --output-file coverage.info
           lcov --list coverage.info
@@ -56,7 +56,7 @@ jobs:
       - name: Upload code coverage report to Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: build/coverage.info
+          files: build/tests/coverage.info
           flags: unittests
           name: C++ CI Coverage
           fail_ci_if_error: false
