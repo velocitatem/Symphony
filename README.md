@@ -37,21 +37,6 @@ The inspiration is drawn from a university course on Artificial Intelligence, wh
     - `ai_rational_agents` (main project executable)
     - `runTests` (test runner)
 
-## Project Structure
-
-```
-ai_rational_agents/
-├─ CMakeLists.txt          # Project configuration
-├─ main.cpp                # Main entry point of the project
-├─ lib/
-│  ├─ interface/
-│  │  ├─ definitions.h     # Core interface definitions for states, actions, and problems
-│  │  └─ search.h          # Abstract search classes
-│  ├─ search.cpp           # Implementation of Breadth-First Search and other
-├─ tests/
-│  └─ tests.cpp            # GoogleTest-based test suite for the Vacuum Cleaner problem
-└─ README.md               # This documentation
-```
 
 ## Extending the Project
 
@@ -73,10 +58,6 @@ Contributions are welcome! If you find issues or want to add features, feel free
 3. Commit your changes (`git commit -am 'Add my feature'`)
 4. Push the branch (`git push origin feature/my-feature`)
 5. Create a new Pull Request
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
