@@ -30,7 +30,8 @@ jobs:
             "lcov" \
             "libboost-all-dev" \
             "libgtest-dev" \
-            "doxygen"
+            "doxygen" 
+          do
             sudo apt-get install -y $pkg || exit 1
           done
 
