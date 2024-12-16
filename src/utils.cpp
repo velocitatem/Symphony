@@ -8,7 +8,7 @@
 // node copmarator for priority queue
 class NodeComparator {
 public:
-    bool operator()(Node *a, Node *b) {
+    bool operator()(const std::shared_ptr<Node> &a, const std::shared_ptr<Node> &b) {
         return a->path_cost + a->heuristic > b->path_cost + b->heuristic;
     }
 };

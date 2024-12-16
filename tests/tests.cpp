@@ -15,7 +15,6 @@ public:
         initial_state_ = new TestState(0);
     }
     ~TestProblem() {
-        delete initial_state_;
     }
     bool goal_test(State *state) override {
         auto *test_state = dynamic_cast<TestState *>(state);

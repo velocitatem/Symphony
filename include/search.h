@@ -1,7 +1,11 @@
-#include "search.h"
+#ifndef SEARCH_H
+#define SEARCH_H
+
+
 #include <map>
 #include "definitions.h"
 #include <memory>
+
 
 class Node {
 public:
@@ -55,15 +59,6 @@ enum SearchAlgorithmIndex {
     A_STAR
 };
 
-Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *problem) {
-    switch (search_algorithm_index) {
-        case BREADTH_FIRST_SEARCH:
-            return new BreadthFirstSearch(problem);
-        case A_STAR:
-            return new AStarSearch(problem);
-        default:
-            return nullptr;
-    }
-}
+Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *problem); // DEFINED IN search.cpp
 
 #endif //SEARCH_H
