@@ -10,6 +10,11 @@
 #include "../symphony.h"
 
 
+
+
+/**
+ * @brief Represents the state of the vacuum cleaner problem.
+ */
 class VacuumState : public State {
 public:
     VacuumState() : x(0), dirty0(true), dirty1(true) {}
@@ -22,6 +27,12 @@ public:
     }
 };
 
+
+/**
+ * @brief Represents the vacuum cleaner problem.
+ * This class defines the initial state, goal test, actions, and heuristics for the vacuum cleaner problem.
+ * The problem is to clean two dirty rooms with a vacuum cleaner. The goal is to clean both rooms.
+ */
 class VacuumCleaner : public Problem {
 public:
     VacuumCleaner() {
@@ -37,6 +48,11 @@ public:
         }
         return !vacuum_state->dirty0 && !vacuum_state->dirty1;
     }
+    /**
+     * @brief Returns the possible actions for the given state.
+     * @param state The current state.
+     * @return A vector of shared pointers to Action objects.
+     */
     std::vector<std::shared_ptr<Action>> actions(std::shared_ptr<State> state) override {
         auto vacuum_state = std::dynamic_pointer_cast<VacuumState>(state);
         std::vector<std::shared_ptr<Action>> actions;
@@ -63,6 +79,11 @@ public:
         return actions;
     }
 
+    /**
+     * @brief Returns the heuristic value for the given state.
+     * @param state The current state.
+     * @return The heuristic value.
+     */
     double heuristic(State *state) override {
         auto *vacuum_state = dynamic_cast<VacuumState *>(state);
         return vacuum_state->dirty0 + vacuum_state->dirty1;

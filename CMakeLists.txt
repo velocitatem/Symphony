@@ -9,7 +9,8 @@ add_library(symphony SHARED
         include/symphony.h
         include/problems/vacuum.h
         include/problems/simple_maze.h
-        include/problems/task_scheduler.h)
+        include/problems/task_scheduler.h
+        include/problems/study_path.h)
 
 target_include_directories(symphony PUBLIC include)
 

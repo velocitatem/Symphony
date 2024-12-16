@@ -1,0 +1,17 @@
+{
+  "mastery_levels": {
+    "Math": 50,
+    "Physics": 30,
+    "Chemistry": 40
+  },
+  "dependencies": {
+    "Physics": [
+      "Math"
+    ]
+  },
+  "synergies": {
+    "Math": 5.0,
+    "Physics": 3.0
+  },
+  "time": 10.0
+}

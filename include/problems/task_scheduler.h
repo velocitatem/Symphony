@@ -6,6 +6,11 @@
 #include <queue>
 #include "../symphony.h"
 
+
+
+/**
+ * @brief Represents a task with a name, priority, and deadline.
+ */
 class Task {
 public:
     Task(std::string name, int priority, int deadline)
@@ -20,6 +25,9 @@ public:
     int deadline;
 };
 
+/**
+ * @brief Represents the state of the task scheduler problem.
+ */
 class TaskSchedulerState : public State {
 public:
     TaskSchedulerState() {
@@ -41,7 +49,13 @@ public:
     }
 };
 
+
 class TaskScheduler : public Problem {
+/**
+ * @brief Represents the task scheduler problem.
+ * This class defines the initial state, goal test, actions, and heuristics for the task scheduler problem.
+ * The problem is to complete a set of tasks with different priorities and deadlines. The goal is to complete all tasks.
+ */
 public:
     TaskScheduler() {
         initial_state_ = new TaskSchedulerState();

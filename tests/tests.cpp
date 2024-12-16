@@ -46,6 +46,24 @@ TEST(Search, AStarSearch) {
     delete search;
 }
 
+TEST(Search, BreadthFirstSearch) {
+    TestProblem problem;
+    Search *search = create_search(SearchAlgorithmIndex::BREADTH_FIRST_SEARCH, &problem);
+    std::shared_ptr<Node> node = search->search();
+    ASSERT_NE(node, nullptr);
+    EXPECT_EQ(dynamic_cast<TestState *>(node->state.get())->value, 10);
+    delete search;
+}
+
+TEST(Search, BeamSearch) {
+    TestProblem problem;
+    Search *search = create_search(SearchAlgorithmIndex::BEAM_SEARCH, &problem);
+    std::shared_ptr<Node> node = search->search();
+    ASSERT_NE(node, nullptr);
+    EXPECT_EQ(dynamic_cast<TestState *>(node->state.get())->value, 10);
+    delete search;
+}
+
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
