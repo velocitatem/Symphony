@@ -97,7 +97,7 @@ public:
      * @param state The current state.
      * @return A vector of actions applicable to the given state.
      */
-    virtual std::vector<Action> actions(std::shared_ptr<State> state) = 0;
+    virtual std::vector<std::shared_ptr<Action>> actions(std::shared_ptr<State> state) = 0;
 
     /**
      * @brief Computes a heuristic estimate for a given state.

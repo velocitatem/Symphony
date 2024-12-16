@@ -12,9 +12,9 @@
 
 class Node {
 public:
-    std::weak_ptr<Node> parent; // Weak pointer to prevent circular references
+    std::shared_ptr<Node> parent; // Weak pointer to prevent circular references
     std::shared_ptr<State> state; // Smart pointer to manage state memory
-    const Action *action;        // Pointer to an immutable Action object
+    const std::shared_ptr<Action> action;        // Pointer to an immutable Action object
     double path_cost;            // Cost to reach this node
     double heuristic;            // Heuristic value (if applicable)
 
@@ -22,7 +22,7 @@ public:
     Node() : action(nullptr), path_cost(0), heuristic(0) {}
 
     // Parameterized constructor
-    Node(std::shared_ptr<Node> parent, std::shared_ptr<State> state, const Action *action, double path_cost, double heuristic)
+    Node(std::shared_ptr<Node> parent, std::shared_ptr<State> state, const std::shared_ptr<Action> action, double path_cost, double heuristic)
         : parent(parent), state(state), action(action), path_cost(path_cost), heuristic(heuristic) {}
 };
 

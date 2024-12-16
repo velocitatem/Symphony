@@ -19,14 +19,15 @@ Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *prob
 
 BreadthFirstSearch::~BreadthFirstSearch() { }
 
-
 void Solution::print() {
-    std::weak_ptr<Node> current = node->parent;
+    Node * current = this->node;
     std::vector<Action> actions;
-    while (current.lock()) {
-        auto parent = current.lock();
-        actions.push_back(*parent->action);
-        current = parent->parent;
+    auto parent = current->parent;
+    // Traverse the solution path by following the parent pointers
+    while (parent != nullptr) {
+        actions.push_back(*current->action);
+        current = parent.get();
+        parent = current->parent;
     }
 
     for (auto it = actions.rbegin(); it != actions.rend(); ++it) {
@@ -62,11 +63,11 @@ std::shared_ptr<Node> BreadthFirstSearch::search() {
         // Expand the node by generating its child nodes
         for (const auto &action : problem->actions(node->state)) {
             auto child = std::make_shared<Node>(
-                node,                       // Parent node
-                action.effect,              // Resulting state (shared_ptr)
-                &action,                    // Pointer to the action
-                node->path_cost + action.cost, // Cumulative path cost
-                problem->heuristic(action.effect.get()) // Heuristic value
+                std::shared_ptr<Node>(node), // Parent node
+                action->effect,
+                action,                    // Pointer to the action
+                node->path_cost + action->cost, // Path cost
+                problem->heuristic(action->effect.get()) // Heuristic value
             );
             frontier.push(child);
         }
