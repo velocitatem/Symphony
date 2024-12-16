@@ -3,6 +3,7 @@
 #include <queue>
 #include <memory>
 #include <iostream>
+#include <unordered_set>
 
 Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *problem) {
     switch (search_algorithm_index) {
@@ -80,6 +81,7 @@ AStarSearch::~AStarSearch() { }
 std::shared_ptr<Node> AStarSearch::search() {
     std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, NodeComparator> frontier;
     // Initialize the root node with the problem's initial state
+    std::unordered_set<std::shared_ptr<State>> explored; // Set of explored states
     auto initial_state = problem->initial_state();
     auto root = std::make_shared<Node>(
         nullptr,                    // Parent node
@@ -99,6 +101,12 @@ std::shared_ptr<Node> AStarSearch::search() {
         if (problem->goal_test(state)) {
             return node;
         }
+
+        // Skip the node if it has already been explored
+        if (explored.find(node->state) != explored.end()) {
+            continue;
+        }
+        explored.insert(node->state);
 
         // Expand the node by generating its child nodes
         for (const auto &action : problem->actions(node->state)) {
