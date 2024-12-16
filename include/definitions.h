@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <unordered_map>
+#include <unordered_set>
 
 /**
  * @brief Represents an abstract state in a problem.
@@ -111,6 +113,142 @@ public:
 
     /// Pointer to the initial state of the problem.
     State *initial_state_;
+};
+
+/**
+ * @brief Represents a constraint satisfaction problem (CSP).
+ *
+ * This class defines the structure of a CSP, including variables, domains, and constraints.
+ * It should be extended by the user to implement specific CSP logic.
+ */
+class CSPProblem : public Problem {
+public:
+    /**
+     * @brief Constructor for the CSPProblem class.
+     */
+    CSPProblem() {}
+
+    /**
+     * @brief Virtual destructor for the CSPProblem class.
+     */
+    virtual ~CSPProblem() {}
+
+    /**
+     * @brief Adds a variable to the CSP.
+     *
+     * @param variable The name of the variable.
+     * @param domain The domain of the variable.
+     */
+    void add_variable(const std::string &variable, const std::vector<int> &domain) {
+        variables_[variable] = domain;
+    }
+
+    /**
+     * @brief Adds a constraint to the CSP.
+     *
+     * @param constraint The constraint function.
+     */
+    void add_constraint(const std::function<bool(const std::unordered_map<std::string, int> &)> &constraint) {
+        constraints_.push_back(constraint);
+    }
+
+    /**
+     * @brief Tests if a given assignment satisfies all constraints.
+     *
+     * @param assignment The assignment to test.
+     * @return True if the assignment satisfies all constraints, false otherwise.
+     */
+    bool is_consistent(const std::unordered_map<std::string, int> &assignment) const {
+        for (const auto &constraint : constraints_) {
+            if (!constraint(assignment)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @brief Retrieves the variables of the CSP.
+     *
+     * @return A reference to the variables of the CSP.
+     */
+    const std::unordered_map<std::string, std::vector<int>> &variables() const {
+        return variables_;
+    }
+
+private:
+    std::unordered_map<std::string, std::vector<int>> variables_; ///< Variables of the CSP.
+    std::vector<std::function<bool(const std::unordered_map<std::string, int> &)>> constraints_; ///< Constraints of the CSP.
+};
+
+/**
+ * @brief Represents a backtracking search algorithm for solving CSPs.
+ */
+class BacktrackingSearch {
+public:
+    /**
+     * @brief Constructor for the BacktrackingSearch class.
+     *
+     * @param problem The CSP problem to solve.
+     */
+    BacktrackingSearch(CSPProblem *problem) : problem_(problem) {}
+
+    /**
+     * @brief Solves the CSP using backtracking search.
+     *
+     * @return A solution to the CSP, or an empty assignment if no solution is found.
+     */
+    std::unordered_map<std::string, int> search() {
+        std::unordered_map<std::string, int> assignment;
+        if (backtrack(assignment)) {
+            return assignment;
+        } else {
+            return {};
+        }
+    }
+
+private:
+    /**
+     * @brief Performs backtracking search to find a solution to the CSP.
+     *
+     * @param assignment The current assignment.
+     * @return True if a solution is found, false otherwise.
+     */
+    bool backtrack(std::unordered_map<std::string, int> &assignment) {
+        if (assignment.size() == problem_->variables().size()) {
+            return true;
+        }
+
+        std::string variable = select_unassigned_variable(assignment);
+        for (int value : problem_->variables().at(variable)) {
+            assignment[variable] = value;
+            if (problem_->is_consistent(assignment)) {
+                if (backtrack(assignment)) {
+                    return true;
+                }
+            }
+            assignment.erase(variable);
+        }
+
+        return false;
+    }
+
+    /**
+     * @brief Selects an unassigned variable from the CSP.
+     *
+     * @param assignment The current assignment.
+     * @return The name of an unassigned variable.
+     */
+    std::string select_unassigned_variable(const std::unordered_map<std::string, int> &assignment) const {
+        for (const auto &variable : problem_->variables()) {
+            if (assignment.find(variable.first) == assignment.end()) {
+                return variable.first;
+            }
+        }
+        return "";
+    }
+
+    CSPProblem *problem_; ///< The CSP problem to solve.
 };
 
 #endif // DEFINITIONS_H
