@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "Action", "classAction.html", "classAction" ],
+    [ "AStarSearch", "classAStarSearch.html", "classAStarSearch" ],
     [ "BreadthFirstSearch", "classBreadthFirstSearch.html", "classBreadthFirstSearch" ],
     [ "Node", "classNode.html", "classNode" ],
     [ "NodeComparator", "classNodeComparator.html", "classNodeComparator" ],

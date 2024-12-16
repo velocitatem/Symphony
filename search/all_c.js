@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['search_0',['search',['../classSearch.html',1,'Search'],['../classSearch.html#a5a9cc812ac08923b77d66f05dd0c2b0f',1,'Search::Search(Problem *problem)'],['../classSearch.html#a6dcd5bab32e9c685d1444e2ba43b00a3',1,'Search::search()=0'],['../classBreadthFirstSearch.html#afc2606e0123d2203fb0807c02534aed2',1,'BreadthFirstSearch::search()']]],
+  ['search_0',['search',['../classSearch.html',1,'Search'],['../classSearch.html#a5a9cc812ac08923b77d66f05dd0c2b0f',1,'Search::Search(Problem *problem)'],['../classSearch.html#a6dcd5bab32e9c685d1444e2ba43b00a3',1,'Search::search()=0'],['../classBreadthFirstSearch.html#afc2606e0123d2203fb0807c02534aed2',1,'BreadthFirstSearch::search()'],['../classAStarSearch.html#aee662964e061697ad84a2d0b4067c1d8',1,'AStarSearch::search()']]],
   ['search_2ecpp_1',['search.cpp',['../search_8cpp.html',1,'']]],
   ['search_2eh_2',['search.h',['../search_8h.html',1,'']]],
   ['searchalgorithmindex_3',['SearchAlgorithmIndex',['../search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cc',1,'search.h']]],

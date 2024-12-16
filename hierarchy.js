@@ -5,6 +5,7 @@ var hierarchy =
     [ "NodeComparator", "classNodeComparator.html", null ],
     [ "Problem", "classProblem.html", null ],
     [ "Search", "classSearch.html", [
+      [ "AStarSearch", "classAStarSearch.html", null ],
       [ "BreadthFirstSearch", "classBreadthFirstSearch.html", null ]
     ] ],
     [ "Solution", "classSolution.html", null ],

@@ -4,6 +4,7 @@ var search_8h =
     [ "Search", "classSearch.html", "classSearch" ],
     [ "Solution", "classSolution.html", "classSolution" ],
     [ "BreadthFirstSearch", "classBreadthFirstSearch.html", "classBreadthFirstSearch" ],
+    [ "AStarSearch", "classAStarSearch.html", "classAStarSearch" ],
     [ "SearchAlgorithmIndex", "search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cc", [
       [ "BREADTH_FIRST_SEARCH", "search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088", null ],
       [ "UNIFORM_COST_SEARCH", "search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca13b8ad1142c32c4ecad36ad1ffa8351c", null ],
