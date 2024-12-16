@@ -42,6 +42,36 @@ The inspiration is drawn from a university course on Artificial Intelligence, wh
 
 ## Extending the Project
 
+```mermaid
+mindmap
+  root((Symphony))
+    SubSystem 1 [Search Algorithms]
+      AStarSearch
+      BeamSearch
+      BreadthFirstSearch
+    SubSystem 2 [Problems]
+      MazeProblem
+        MazeState
+      StudyProblem
+        StudyState
+      TaskScheduler
+        TaskSchedulerState
+      VacuumCleaner
+        VacuumState
+    SubSystem 3 [Core Components]
+      State
+      Action
+      Problem
+      Solution
+    SubSystem 4 [Utilities]
+      Definitions.h
+      Search.h
+      TaskScheduler.h
+      SimpleMaze.h
+      StudyPath.h
+      Vacuum.h
+```
+
 - **Add New Problems**:  
   Create classes extending `Problem` and `State`, defining domain-specific logic, actions, and heuristics.
 
