@@ -125,7 +125,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00031">31</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00038">38</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad96eb848fbd13c6bcc8a78e5d8a8b7c2" name="ad96eb848fbd13c6bcc8a78e5d8a8b7c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad96eb848fbd13c6bcc8a78e5d8a8b7c2">&#9670;&#160;</a></span>Solution()</h2>
@@ -151,9 +151,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00033">33</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   33</span>: <a class="code hl_variable" href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">node</a>(<a class="code hl_variable" href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">node</a>) {}</div>
-<div class="ttc" id="aclassSolution_html_a20ba5bed5b09f6b386aabe9af86a5713"><div class="ttname"><a href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">Solution::node</a></div><div class="ttdeci">Node * node</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00035">search.h:35</a></div></div>
+<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00040">40</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>: <a class="code hl_variable" href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">node</a>(<a class="code hl_variable" href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">node</a>) {}</div>
+<div class="ttc" id="aclassSolution_html_a20ba5bed5b09f6b386aabe9af86a5713"><div class="ttname"><a href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">Solution::node</a></div><div class="ttdeci">Node * node</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00042">search.h:42</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -175,23 +175,22 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00023">23</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   23</span>                     {</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keyword">auto</span> current = <a class="code hl_variable" href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">node</a>;</div>
+<div class="line"><span class="lineno">   24</span>    std::weak_ptr&lt;Node&gt; current = <a class="code hl_variable" href="classSolution.html#a20ba5bed5b09f6b386aabe9af86a5713">node</a>-&gt;<a class="code hl_variable" href="classNode.html#a99e65d6b9186c551371b95ea3845b6fd">parent</a>;</div>
 <div class="line"><span class="lineno">   25</span>    std::vector&lt;Action&gt; actions;</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">while</span> (current) {</div>
-<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">if</span> (current-&gt;action) {</div>
-<div class="line"><span class="lineno">   28</span>            actions.push_back(*current-&gt;action);</div>
-<div class="line"><span class="lineno">   29</span>        }</div>
-<div class="line"><span class="lineno">   30</span>        current = current-&gt;<a class="code hl_variable" href="classNode.html#ad8184598cdea70e4bbdfd76f2b0f9e85">parent</a>;</div>
-<div class="line"><span class="lineno">   31</span>    }</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = actions.rbegin(); it != actions.rend(); ++it) {</div>
-<div class="line"><span class="lineno">   34</span>        std::cout &lt;&lt; it-&gt;name &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   35</span>    }</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>}</div>
-<div class="ttc" id="aclassNode_html_ad8184598cdea70e4bbdfd76f2b0f9e85"><div class="ttname"><a href="classNode.html#ad8184598cdea70e4bbdfd76f2b0f9e85">Node::parent</a></div><div class="ttdeci">Node * parent</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00016">search.h:16</a></div></div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">while</span> (current.lock()) {</div>
+<div class="line"><span class="lineno">   27</span>        <span class="keyword">auto</span> parent = current.lock();</div>
+<div class="line"><span class="lineno">   28</span>        actions.push_back(*parent-&gt;action);</div>
+<div class="line"><span class="lineno">   29</span>        current = parent-&gt;parent;</div>
+<div class="line"><span class="lineno">   30</span>    }</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = actions.rbegin(); it != actions.rend(); ++it) {</div>
+<div class="line"><span class="lineno">   33</span>        std::cout &lt;&lt; it-&gt;name &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   34</span>    }</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>}</div>
+<div class="ttc" id="aclassNode_html_a99e65d6b9186c551371b95ea3845b6fd"><div class="ttname"><a href="classNode.html#a99e65d6b9186c551371b95ea3845b6fd">Node::parent</a></div><div class="ttdeci">std::weak_ptr&lt; Node &gt; parent</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00015">search.h:15</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="search_8h_source.html#l00035">node</a>, and <a class="el" href="search_8h_source.html#l00016">Node::parent</a>.</p>
+<p class="reference">References <a class="el" href="search_8h_source.html#l00042">node</a>, and <a class="el" href="search_8h_source.html#l00015">Node::parent</a>.</p>
 
 </div>
 </div>
@@ -208,7 +207,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00035">35</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00042">42</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00023">print()</a>.</p>
 
@@ -224,7 +223,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classSolution.html">Solution</a></li>
-    <li class="footer">Generated on Sun Dec 15 2024 20:42:32 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 16 2024 10:39:33 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
