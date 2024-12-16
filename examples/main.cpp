@@ -167,6 +167,7 @@ int main () {
         if (node) {
             std::cout << "Solution found!" << std::endl;
             State *vacuum_state = node->state.get();
+            vacuum_state->print();
         } else {
             std::cout << "Solution not found!" << std::endl;
         }
