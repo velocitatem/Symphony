@@ -46,6 +46,52 @@ TEST(Search, AStarSearch) {
     delete search;
 }
 
+// Test case for CSPProblem class
+TEST(CSPProblem, AddVariable) {
+    CSPProblem csp;
+    csp.add_variable("X", {1, 2, 3});
+    EXPECT_EQ(csp.variables().size(), 1);
+    EXPECT_EQ(csp.variables().at("X").size(), 3);
+}
+
+TEST(CSPProblem, AddConstraint) {
+    CSPProblem csp;
+    csp.add_variable("X", {1, 2, 3});
+    csp.add_variable("Y", {1, 2, 3});
+    csp.add_constraint([](const std::unordered_map<std::string, int> &assignment) {
+        return assignment.at("X") != assignment.at("Y");
+    });
+    std::unordered_map<std::string, int> assignment = {{"X", 1}, {"Y", 2}};
+    EXPECT_TRUE(csp.is_consistent(assignment));
+    assignment = {{"X", 1}, {"Y", 1}};
+    EXPECT_FALSE(csp.is_consistent(assignment));
+}
+
+// Test case for BacktrackingSearch class
+TEST(BacktrackingSearch, Search) {
+    CSPProblem csp;
+    csp.add_variable("X", {1, 2, 3});
+    csp.add_variable("Y", {1, 2, 3});
+    csp.add_variable("Z", {1, 2, 3});
+    csp.add_constraint([](const std::unordered_map<std::string, int> &assignment) {
+        return assignment.at("X") != assignment.at("Y");
+    });
+    csp.add_constraint([](const std::unordered_map<std::string, int> &assignment) {
+        return assignment.at("Y") != assignment.at("Z");
+    });
+    csp.add_constraint([](const std::unordered_map<std::string, int> &assignment) {
+        return assignment.at("X") != assignment.at("Z");
+    });
+
+    BacktrackingSearch search(&csp);
+    std::unordered_map<std::string, int> solution = search.search();
+
+    EXPECT_FALSE(solution.empty());
+    EXPECT_NE(solution["X"], solution["Y"]);
+    EXPECT_NE(solution["Y"], solution["Z"]);
+    EXPECT_NE(solution["X"], solution["Z"]);
+}
+
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

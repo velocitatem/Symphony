@@ -124,3 +124,65 @@ std::shared_ptr<Node> AStarSearch::search() {
     // Return nullptr if no solution is found
     return nullptr;
 }
+
+// Implement CSPProblem class methods for handling variables, domains, and constraints
+void CSPProblem::add_variable(const std::string &variable, const std::vector<int> &domain) {
+    variables_[variable] = domain;
+}
+
+void CSPProblem::add_constraint(const std::function<bool(const std::unordered_map<std::string, int> &)> &constraint) {
+    constraints_.push_back(constraint);
+}
+
+bool CSPProblem::is_consistent(const std::unordered_map<std::string, int> &assignment) const {
+    for (const auto &constraint : constraints_) {
+        if (!constraint(assignment)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+const std::unordered_map<std::string, std::vector<int>> &CSPProblem::variables() const {
+    return variables_;
+}
+
+// Implement BacktrackingSearch class methods for solving CSPs using backtracking search algorithm
+BacktrackingSearch::BacktrackingSearch(CSPProblem *problem) : problem_(problem) {}
+
+std::unordered_map<std::string, int> BacktrackingSearch::search() {
+    std::unordered_map<std::string, int> assignment;
+    if (backtrack(assignment)) {
+        return assignment;
+    } else {
+        return {};
+    }
+}
+
+bool BacktrackingSearch::backtrack(std::unordered_map<std::string, int> &assignment) {
+    if (assignment.size() == problem_->variables().size()) {
+        return true;
+    }
+
+    std::string variable = select_unassigned_variable(assignment);
+    for (int value : problem_->variables().at(variable)) {
+        assignment[variable] = value;
+        if (problem_->is_consistent(assignment)) {
+            if (backtrack(assignment)) {
+                return true;
+            }
+        }
+        assignment.erase(variable);
+    }
+
+    return false;
+}
+
+std::string BacktrackingSearch::select_unassigned_variable(const std::unordered_map<std::string, int> &assignment) const {
+    for (const auto &variable : problem_->variables()) {
+        if (assignment.find(variable.first) == assignment.end()) {
+            return variable.first;
+        }
+    }
+    return "";
+}
