@@ -8,6 +8,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 /**
  * @brief Represents an abstract state in a problem.
@@ -41,39 +42,17 @@ public:
  */
 class Action {
 public:
-    /**
-     * @brief Default constructor for the Action class.
-     */
-    Action() {}
+ std::string name;                          // Action name (e.g., "Up", "Down")
+ double cost;                               // Cost of the action
+ std::shared_ptr<State> source_state;       // Source state
+ std::shared_ptr<State> effect;            // Resulting state after applying the action
 
-    /**
-     * @brief Parameterized constructor for the Action class.
-     *
-     * @param name Name of the action.
-     * @param cost Cost of performing the action.
-     * @param precondition The precondition state required for this action.
-     * @param effect The resulting state after performing this action.
-     */
-    Action(std::string name, double cost, State *precondition, State *effect)
-        : name(name), cost(cost), precondition(precondition), effect(effect) {}
-
-    /**
-     * @brief Virtual destructor for the Action class.
-     */
-    virtual ~Action() {}
-
-    /// Name of the action.
-    std::pmr::string name;
-
-    /// Cost of performing the action.
-    double cost;
-
-    /// Precondition state required for this action.
-    State *precondition;
-
-    /// The resulting state after performing this action.
-    State *effect;
+ // Constructor
+ Action(const std::string &name, double cost, std::shared_ptr<State> source_state, std::shared_ptr<State> effect)
+     : name(name), cost(cost), source_state(source_state), effect(effect) {}
 };
+
+
 
 /**
  * @brief Represents an abstract problem that needs to be solved.
@@ -118,7 +97,7 @@ public:
      * @param state The current state.
      * @return A vector of actions applicable to the given state.
      */
-    virtual std::vector<Action> actions(State *state) = 0;
+    virtual std::vector<Action> actions(std::shared_ptr<State> state) = 0;
 
     /**
      * @brief Computes a heuristic estimate for a given state.
