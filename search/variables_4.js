@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initial_5fstate_5f_0',['initial_state_',['../classProblem.html#ad1cf80f46c5c7b26808a7581b0742b91',1,'Problem']]]
+  ['effect_0',['effect',['../classAction.html#a19f04eca8850b8cda944a1a1178d3909',1,'Action']]]
 ];

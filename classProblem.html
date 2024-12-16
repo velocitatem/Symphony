@@ -109,9 +109,14 @@ $(document).ready(function(){initNavTree('classProblem.html',''); initResizable(
 
 <p><code>#include &lt;<a class="el" href="definitions_8h_source.html">definitions.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for Problem:</div>
+Inheritance diagram for Problem:</div>
 <div class="dyncontent">
 <div class="center"><!-- SVG 0 --></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Problem:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 1 --></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -242,7 +247,9 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of actions applicable to the given state. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00081">AStarSearch::search()</a>.</p>
+<p>Implemented in <a class="el" href="classMazeProblem.html#adb1c0632dfb0d04c434f260fc47cb4ee">MazeProblem</a>, <a class="el" href="classStudyProblem.html#a24db633dd297f08efbfd014d6d4c8d95">StudyProblem</a>, <a class="el" href="classTaskScheduler.html#af2b7d0e4883f77604385f2d28ca03e52">TaskScheduler</a>, and <a class="el" href="classVacuumCleaner.html#af78ee24effc8d66b542858a6b468fd0a">VacuumCleaner</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00044">BreadthFirstSearch::search()</a>, <a class="el" href="search_8cpp_source.html#l00080">AStarSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00132">BeamSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -280,7 +287,9 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the state satisfies the goal condition, false otherwise. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00081">AStarSearch::search()</a>.</p>
+<p>Implemented in <a class="el" href="classMazeProblem.html#ac918296d8dd37ab8aa97f99b7ae252d4">MazeProblem</a>, <a class="el" href="classStudyProblem.html#a48f8ef85bd97888f63c9a7955fd07a2d">StudyProblem</a>, <a class="el" href="classTaskScheduler.html#a1df1253f187bca6ec654a80db0b6271a">TaskScheduler</a>, and <a class="el" href="classVacuumCleaner.html#aa3a7db17a6940e16d276f6f9a54ff084">VacuumCleaner</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00044">BreadthFirstSearch::search()</a>, <a class="el" href="search_8cpp_source.html#l00080">AStarSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00132">BeamSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -318,7 +327,9 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A heuristic estimate of the cost to reach the goal from the given state. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00081">AStarSearch::search()</a>.</p>
+<p>Implemented in <a class="el" href="classMazeProblem.html#a032055bd39ed0cdb99fcbe20131e466a">MazeProblem</a>, <a class="el" href="classStudyProblem.html#aa1572011cb1a5af6957f7cc8335b3caa">StudyProblem</a>, <a class="el" href="classTaskScheduler.html#af7d868e5f12d2872a8533ff8b0f1f30d">TaskScheduler</a>, and <a class="el" href="classVacuumCleaner.html#ac8b16523f085b3496a5a50757d783ade">VacuumCleaner</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00044">BreadthFirstSearch::search()</a>, <a class="el" href="search_8cpp_source.html#l00080">AStarSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00132">BeamSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -348,13 +359,15 @@ Public Attributes</h2></td></tr>
 <p>Retrieves the initial state of the problem. </p>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the initial state. </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classStudyProblem.html#a0b2f9d0a6cef166d2ec2a3e6f2fc192c">StudyProblem</a>.</p>
+
 <p class="definition">Definition at line <a class="el" href="definitions_8h_source.html#l00080">80</a> of file <a class="el" href="definitions_8h_source.html">definitions.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   80</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classProblem.html#ad1cf80f46c5c7b26808a7581b0742b91">initial_state_</a>; }</div>
 <div class="ttc" id="aclassProblem_html_ad1cf80f46c5c7b26808a7581b0742b91"><div class="ttname"><a href="classProblem.html#ad1cf80f46c5c7b26808a7581b0742b91">Problem::initial_state_</a></div><div class="ttdeci">State * initial_state_</div><div class="ttdoc">Pointer to the initial state of the problem.</div><div class="ttdef"><b>Definition</b> <a href="definitions_8h_source.html#l00113">definitions.h:113</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="definitions_8h_source.html#l00113">initial_state_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00081">AStarSearch::search()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00044">BreadthFirstSearch::search()</a>, <a class="el" href="search_8cpp_source.html#l00080">AStarSearch::search()</a>, and <a class="el" href="search_8cpp_source.html#l00132">BeamSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -375,7 +388,7 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="definitions_8h_source.html#l00113">113</a> of file <a class="el" href="definitions_8h_source.html">definitions.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="definitions_8h_source.html#l00080">initial_state()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="definitions_8h_source.html#l00080">initial_state()</a>, <a class="el" href="simple__maze_8h_source.html#l00059">MazeProblem::MazeProblem()</a>, <a class="el" href="task__scheduler_8h_source.html#l00060">TaskScheduler::TaskScheduler()</a>, and <a class="el" href="vacuum_8h_source.html#l00038">VacuumCleaner::VacuumCleaner()</a>.</p>
 
 </div>
 </div>
@@ -388,7 +401,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classProblem.html">Problem</a></li>
-    <li class="footer">Generated on Mon Dec 16 2024 13:00:18 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 16 2024 19:00:06 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

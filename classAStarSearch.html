@@ -137,7 +137,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00049">49</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00078">78</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7b82034d9da8f4f8ff345834805f4ba5" name="a7b82034d9da8f4f8ff345834805f4ba5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b82034d9da8f4f8ff345834805f4ba5">&#9670;&#160;</a></span>AStarSearch()</h2>
@@ -163,10 +163,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00051">51</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>: <a class="code hl_class" href="classSearch.html">Search</a>(<a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>) {}</div>
-<div class="ttc" id="aclassSearch_html"><div class="ttname"><a href="classSearch.html">Search</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00027">search.h:27</a></div></div>
-<div class="ttc" id="aclassSearch_html_a5e61754a9baca422b2291a8f04b3a484"><div class="ttname"><a href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">Search::problem</a></div><div class="ttdeci">Problem * problem</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00032">search.h:32</a></div></div>
+<p class="definition">Definition at line <a class="el" href="search_8h_source.html#l00080">80</a> of file <a class="el" href="search_8h_source.html">search.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>: <a class="code hl_class" href="classSearch.html">Search</a>(<a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>) {}</div>
+<div class="ttc" id="aclassSearch_html"><div class="ttname"><a href="classSearch.html">Search</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00047">search.h:47</a></div></div>
+<div class="ttc" id="aclassSearch_html_a5e61754a9baca422b2291a8f04b3a484"><div class="ttname"><a href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">Search::problem</a></div><div class="ttdeci">Problem * problem</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00052">search.h:52</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,8 +185,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00079">79</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   79</span>{ }</div>
+<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00078">78</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>{ }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,60 +216,60 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classSearch.html#a6dcd5bab32e9c685d1444e2ba43b00a3">Search</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00081">81</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   81</span>                                        {</div>
-<div class="line"><span class="lineno">   82</span>    std::priority_queue&lt;std::shared_ptr&lt;Node&gt;, std::vector&lt;std::shared_ptr&lt;Node&gt;&gt;, <a class="code hl_class" href="classNodeComparator.html">NodeComparator</a>&gt; frontier;</div>
-<div class="line"><span class="lineno">   83</span>    <span class="comment">// Initialize the root node with the problem&#39;s initial state</span></div>
-<div class="line"><span class="lineno">   84</span>    std::unordered_set&lt;std::shared_ptr&lt;State&gt;&gt; explored; <span class="comment">// Set of explored states</span></div>
-<div class="line"><span class="lineno">   85</span>    <span class="keyword">auto</span> initial_state = <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#ab3aee305b5b53b3e739e7945d50e957c">initial_state</a>();</div>
-<div class="line"><span class="lineno">   86</span>    <span class="keyword">auto</span> root = std::make_shared&lt;Node&gt;(</div>
-<div class="line"><span class="lineno">   87</span>        <span class="keyword">nullptr</span>,                    <span class="comment">// Parent node</span></div>
-<div class="line"><span class="lineno">   88</span>        std::shared_ptr&lt;State&gt;(initial_state), <span class="comment">// Initial state (shared_ptr)</span></div>
-<div class="line"><span class="lineno">   89</span>        <span class="keyword">nullptr</span>,                    <span class="comment">// No action</span></div>
-<div class="line"><span class="lineno">   90</span>        0,                          <span class="comment">// Path cost</span></div>
-<div class="line"><span class="lineno">   91</span>        <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">heuristic</a>(initial_state) <span class="comment">// Heuristic value</span></div>
-<div class="line"><span class="lineno">   92</span>    );</div>
-<div class="line"><span class="lineno">   93</span>    frontier.push(root);</div>
-<div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">while</span> (!frontier.empty()) {</div>
-<div class="line"><span class="lineno">   96</span>        <span class="keyword">auto</span> node = frontier.top();</div>
-<div class="line"><span class="lineno">   97</span>        frontier.pop();</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>        <span class="comment">// Check if the goal state is reached</span></div>
-<div class="line"><span class="lineno">  100</span>        <a class="code hl_class" href="classState.html">State</a> *state = node-&gt;state.get();</div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#a3518e0e92160f850ecf123cf0196ab4d">goal_test</a>(state)) {</div>
-<div class="line"><span class="lineno">  102</span>            <span class="keywordflow">return</span> node;</div>
-<div class="line"><span class="lineno">  103</span>        }</div>
-<div class="line"><span class="lineno">  104</span> </div>
-<div class="line"><span class="lineno">  105</span>        <span class="comment">// Skip the node if it has already been explored</span></div>
-<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">if</span> (explored.find(node-&gt;state) != explored.end()) {</div>
-<div class="line"><span class="lineno">  107</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  108</span>        }</div>
-<div class="line"><span class="lineno">  109</span>        explored.insert(node-&gt;state);</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>        <span class="comment">// Expand the node by generating its child nodes</span></div>
-<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;action : <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;actions(node-&gt;state)) {</div>
-<div class="line"><span class="lineno">  113</span>            <span class="keyword">auto</span> child = std::make_shared&lt;Node&gt;(</div>
-<div class="line"><span class="lineno">  114</span>                std::shared_ptr&lt;Node&gt;(node), <span class="comment">// Parent node</span></div>
-<div class="line"><span class="lineno">  115</span>                action-&gt;effect,</div>
-<div class="line"><span class="lineno">  116</span>                action,                    <span class="comment">// Pointer to the action</span></div>
-<div class="line"><span class="lineno">  117</span>                node-&gt;path_cost + action-&gt;cost, <span class="comment">// Path cost</span></div>
-<div class="line"><span class="lineno">  118</span>                <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">heuristic</a>(action-&gt;effect.get()) <span class="comment">// Heuristic value</span></div>
-<div class="line"><span class="lineno">  119</span>            );</div>
-<div class="line"><span class="lineno">  120</span>            frontier.push(child);</div>
-<div class="line"><span class="lineno">  121</span>        }</div>
-<div class="line"><span class="lineno">  122</span>    }</div>
-<div class="line"><span class="lineno">  123</span> </div>
-<div class="line"><span class="lineno">  124</span>    <span class="comment">// Return nullptr if no solution is found</span></div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  126</span>}</div>
+<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00080">80</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                                        {</div>
+<div class="line"><span class="lineno">   81</span>    std::priority_queue&lt;std::shared_ptr&lt;Node&gt;, std::vector&lt;std::shared_ptr&lt;Node&gt;&gt;, <a class="code hl_class" href="classNodeComparator.html">NodeComparator</a>&gt; frontier;</div>
+<div class="line"><span class="lineno">   82</span>    <span class="comment">// Initialize the root node with the problem&#39;s initial state</span></div>
+<div class="line"><span class="lineno">   83</span>    std::unordered_set&lt;std::shared_ptr&lt;State&gt;&gt; explored; <span class="comment">// Set of explored states</span></div>
+<div class="line"><span class="lineno">   84</span>    <span class="keyword">auto</span> initial_state = <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#ab3aee305b5b53b3e739e7945d50e957c">initial_state</a>();</div>
+<div class="line"><span class="lineno">   85</span>    <span class="keyword">auto</span> root = std::make_shared&lt;Node&gt;(</div>
+<div class="line"><span class="lineno">   86</span>        <span class="keyword">nullptr</span>,                    <span class="comment">// Parent node</span></div>
+<div class="line"><span class="lineno">   87</span>        std::shared_ptr&lt;State&gt;(initial_state), <span class="comment">// Initial state (shared_ptr)</span></div>
+<div class="line"><span class="lineno">   88</span>        <span class="keyword">nullptr</span>,                    <span class="comment">// No action</span></div>
+<div class="line"><span class="lineno">   89</span>        0,                          <span class="comment">// Path cost</span></div>
+<div class="line"><span class="lineno">   90</span>        <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">heuristic</a>(initial_state) <span class="comment">// Heuristic value</span></div>
+<div class="line"><span class="lineno">   91</span>    );</div>
+<div class="line"><span class="lineno">   92</span>    frontier.push(root);</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">while</span> (!frontier.empty()) {</div>
+<div class="line"><span class="lineno">   95</span>        <span class="keyword">auto</span> node = frontier.top();</div>
+<div class="line"><span class="lineno">   96</span>        frontier.pop();</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>        <span class="comment">// Check if the goal state is reached</span></div>
+<div class="line"><span class="lineno">   99</span>        <a class="code hl_class" href="classState.html">State</a> *state = node-&gt;state.get();</div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#a3518e0e92160f850ecf123cf0196ab4d">goal_test</a>(state)) {</div>
+<div class="line"><span class="lineno">  101</span>            <span class="keywordflow">return</span> node;</div>
+<div class="line"><span class="lineno">  102</span>        }</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>        <span class="comment">// Skip the node if it has already been explored</span></div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">if</span> (explored.find(node-&gt;state) != explored.end()) {</div>
+<div class="line"><span class="lineno">  106</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  107</span>        }</div>
+<div class="line"><span class="lineno">  108</span>        explored.insert(node-&gt;state);</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>        <span class="comment">// Expand the node by generating its child nodes</span></div>
+<div class="line"><span class="lineno">  111</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;action : <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;actions(node-&gt;state)) {</div>
+<div class="line"><span class="lineno">  112</span>            <span class="keyword">auto</span> child = std::make_shared&lt;Node&gt;(</div>
+<div class="line"><span class="lineno">  113</span>                std::shared_ptr&lt;Node&gt;(node), <span class="comment">// Parent node</span></div>
+<div class="line"><span class="lineno">  114</span>                action-&gt;effect,</div>
+<div class="line"><span class="lineno">  115</span>                action,                    <span class="comment">// Pointer to the action</span></div>
+<div class="line"><span class="lineno">  116</span>                node-&gt;path_cost + action-&gt;cost, <span class="comment">// Path cost</span></div>
+<div class="line"><span class="lineno">  117</span>                <a class="code hl_variable" href="classSearch.html#a5e61754a9baca422b2291a8f04b3a484">problem</a>-&gt;<a class="code hl_function" href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">heuristic</a>(action-&gt;effect.get()) <span class="comment">// Heuristic value</span></div>
+<div class="line"><span class="lineno">  118</span>            );</div>
+<div class="line"><span class="lineno">  119</span>            frontier.push(child);</div>
+<div class="line"><span class="lineno">  120</span>        }</div>
+<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>    <span class="comment">// Return nullptr if no solution is found</span></div>
+<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  125</span>}</div>
 <div class="ttc" id="aclassNodeComparator_html"><div class="ttname"><a href="classNodeComparator.html">NodeComparator</a></div><div class="ttdef"><b>Definition</b> <a href="utils_8cpp_source.html#l00009">utils.cpp:9</a></div></div>
 <div class="ttc" id="aclassProblem_html_a3518e0e92160f850ecf123cf0196ab4d"><div class="ttname"><a href="classProblem.html#a3518e0e92160f850ecf123cf0196ab4d">Problem::goal_test</a></div><div class="ttdeci">virtual bool goal_test(State *state)=0</div><div class="ttdoc">Tests if a given state satisfies the goal condition.</div></div>
 <div class="ttc" id="aclassProblem_html_a7dd302f1a4c91bc18bb94c3d5889ae92"><div class="ttname"><a href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">Problem::heuristic</a></div><div class="ttdeci">virtual double heuristic(State *state)=0</div><div class="ttdoc">Computes a heuristic estimate for a given state.</div></div>
 <div class="ttc" id="aclassProblem_html_ab3aee305b5b53b3e739e7945d50e957c"><div class="ttname"><a href="classProblem.html#ab3aee305b5b53b3e739e7945d50e957c">Problem::initial_state</a></div><div class="ttdeci">virtual State * initial_state()</div><div class="ttdoc">Retrieves the initial state of the problem.</div><div class="ttdef"><b>Definition</b> <a href="definitions_8h_source.html#l00080">definitions.h:80</a></div></div>
 <div class="ttc" id="aclassState_html"><div class="ttname"><a href="classState.html">State</a></div><div class="ttdoc">Represents an abstract state in a problem.</div><div class="ttdef"><b>Definition</b> <a href="definitions_8h_source.html#l00018">definitions.h:18</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classProblem.html#a9de3b336dc02ff15d26859d5d1166905">Problem::actions()</a>, <a class="el" href="classProblem.html#a3518e0e92160f850ecf123cf0196ab4d">Problem::goal_test()</a>, <a class="el" href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">Problem::heuristic()</a>, <a class="el" href="definitions_8h_source.html#l00080">Problem::initial_state()</a>, and <a class="el" href="search_8h_source.html#l00032">Search::problem</a>.</p>
+<p class="reference">References <a class="el" href="classProblem.html#a9de3b336dc02ff15d26859d5d1166905">Problem::actions()</a>, <a class="el" href="classProblem.html#a3518e0e92160f850ecf123cf0196ab4d">Problem::goal_test()</a>, <a class="el" href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">Problem::heuristic()</a>, <a class="el" href="definitions_8h_source.html#l00080">Problem::initial_state()</a>, and <a class="el" href="search_8h_source.html#l00052">Search::problem</a>.</p>
 
 </div>
 </div>
@@ -283,7 +283,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classAStarSearch.html">AStarSearch</a></li>
-    <li class="footer">Generated on Mon Dec 16 2024 13:00:18 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 16 2024 19:00:06 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

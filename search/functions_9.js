@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['search_0',['search',['../classSearch.html#a5a9cc812ac08923b77d66f05dd0c2b0f',1,'Search::Search(Problem *problem)'],['../classSearch.html#a6dcd5bab32e9c685d1444e2ba43b00a3',1,'Search::search()=0'],['../classBreadthFirstSearch.html#afc2606e0123d2203fb0807c02534aed2',1,'BreadthFirstSearch::search()'],['../classAStarSearch.html#aee662964e061697ad84a2d0b4067c1d8',1,'AStarSearch::search()']]],
-  ['solution_1',['Solution',['../classSolution.html#ad96eb848fbd13c6bcc8a78e5d8a8b7c2',1,'Solution']]],
-  ['state_2',['State',['../classState.html#ab91bb1dd5aa6260ab2a456581daf9ec2',1,'State']]]
+  ['print_0',['print',['../classState.html#a7f87423f14baecc25b8d2a70f1db554b',1,'State::print()'],['../classMazeState.html#a5d45a2da6dca4b7149fa56cbc3103257',1,'MazeState::print()'],['../classStudyState.html#ad6e3857048e83369effd79a12af63624',1,'StudyState::print()'],['../classTaskSchedulerState.html#ac124ae406a203a189d840a0c78754b1b',1,'TaskSchedulerState::print()'],['../classVacuumState.html#a50b8448f1cefc50d7dd48a37905f2e28',1,'VacuumState::print()'],['../classSolution.html#a22519dee8cecd124e2e112a3a9bc505c',1,'Solution::print()']]],
+  ['problem_1',['Problem',['../classProblem.html#ad9d44f0ef936fb62f0ce41dd200494ac',1,'Problem']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cost_0',['cost',['../classAction.html#a7c8c07fc113362ada1e22c07f260730f',1,'Action']]]
+  ['beam_5fwidth_0',['beam_width',['../classBeamSearch.html#a3570410a5c9bc5fd2b02d3ae5418e188',1,'BeamSearch']]]
 ];

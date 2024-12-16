@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['node_0',['node',['../classNode.html#ad7a34779cad45d997bfd6d3d8043c75f',1,'Node::Node()'],['../classNode.html#a4ae33dd3bba900ec307c1969f81f945d',1,'Node::Node(std::shared_ptr&lt; Node &gt; parent, std::shared_ptr&lt; State &gt; state, const std::shared_ptr&lt; Action &gt; action, double path_cost, double heuristic)']]]
+  ['mazeproblem_0',['MazeProblem',['../classMazeProblem.html#aba61668137835b70f6dd7aab046bb5e7',1,'MazeProblem']]],
+  ['mazestate_1',['mazestate',['../classMazeState.html#a4c97901eab8073b2e92540c3e1bb9620',1,'MazeState::MazeState()'],['../classMazeState.html#a25c4c58ec88f162db6416f22e087035b',1,'MazeState::MazeState(std::vector&lt; std::vector&lt; int &gt; &gt; maze, int x, int y)']]]
 ];

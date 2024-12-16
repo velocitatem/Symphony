@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['print_0',['print',['../classState.html#a7f87423f14baecc25b8d2a70f1db554b',1,'State::print()'],['../classSolution.html#a22519dee8cecd124e2e112a3a9bc505c',1,'Solution::print()']]],
-  ['problem_1',['Problem',['../classProblem.html#ad9d44f0ef936fb62f0ce41dd200494ac',1,'Problem']]]
+  ['operator_28_29_0',['operator()',['../classNodeComparator.html#a96235187f348e9af78e23bb852df974d',1,'NodeComparator']]],
+  ['operator_3d_3d_1',['operator==',['../classTask.html#adda87005cd889084c71f5cbb0a6a5986',1,'Task']]]
 ];

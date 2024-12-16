@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['effect_0',['effect',['../classAction.html#a19f04eca8850b8cda944a1a1178d3909',1,'Action']]]
+  ['cost_0',['cost',['../classAction.html#a7c8c07fc113362ada1e22c07f260730f',1,'Action']]]
 ];

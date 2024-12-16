@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['node_0',['Node',['../classNode.html',1,'']]],
-  ['nodecomparator_1',['NodeComparator',['../classNodeComparator.html',1,'']]]
+  ['mazeproblem_0',['MazeProblem',['../classMazeProblem.html',1,'']]],
+  ['mazestate_1',['MazeState',['../classMazeState.html',1,'']]]
 ];

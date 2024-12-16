@@ -107,6 +107,9 @@ $(document).ready(function(){initNavTree('search_8cpp.html',''); initResizable()
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;unordered_set&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for search.cpp:</div>
 <div class="dyncontent">
@@ -118,6 +121,7 @@ Include dependency graph for search.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9ea9d3887e20c408aad25ebd9a248b24" id="r_a9ea9d3887e20c408aad25ebd9a248b24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSearch.html">Search</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="search_8cpp.html#a9ea9d3887e20c408aad25ebd9a248b24">create_search</a> (<a class="el" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cc">SearchAlgorithmIndex</a> search_algorithm_index, <a class="el" href="classProblem.html">Problem</a> *problem)</td></tr>
+<tr class="memdesc:a9ea9d3887e20c408aad25ebd9a248b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory method to create a search object based on the specified search algorithm.  <br /></td></tr>
 <tr class="separator:a9ea9d3887e20c408aad25ebd9a248b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -147,23 +151,39 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00008">8</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>                                                                                     {</div>
-<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">switch</span> (search_algorithm_index) {</div>
-<div class="line"><span class="lineno">   10</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088">BREADTH_FIRST_SEARCH</a>:</div>
-<div class="line"><span class="lineno">   11</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classBreadthFirstSearch.html">BreadthFirstSearch</a>(problem);</div>
-<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a">A_STAR</a>:</div>
-<div class="line"><span class="lineno">   13</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classAStarSearch.html">AStarSearch</a>(problem);</div>
-<div class="line"><span class="lineno">   14</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   15</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">   16</span>    }</div>
-<div class="line"><span class="lineno">   17</span>}</div>
-<div class="ttc" id="aclassAStarSearch_html"><div class="ttname"><a href="classAStarSearch.html">AStarSearch</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00049">search.h:49</a></div></div>
-<div class="ttc" id="aclassBreadthFirstSearch_html"><div class="ttname"><a href="classBreadthFirstSearch.html">BreadthFirstSearch</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00042">search.h:42</a></div></div>
-<div class="ttc" id="asearch_8h_html_a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a"><div class="ttname"><a href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a">A_STAR</a></div><div class="ttdeci">@ A_STAR</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00060">search.h:59</a></div></div>
-<div class="ttc" id="asearch_8h_html_a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088"><div class="ttname"><a href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088">BREADTH_FIRST_SEARCH</a></div><div class="ttdeci">@ BREADTH_FIRST_SEARCH</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00057">search.h:57</a></div></div>
+<p>Factory method to create a search object based on the specified search algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">search_algorithm_index</td><td>The index of the search algorithm to use. </td></tr>
+    <tr><td class="paramname">problem</td><td>The problem to solve. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the created search object. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00012">12</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                                     {</div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">switch</span> (search_algorithm_index) {</div>
+<div class="line"><span class="lineno">   14</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088">BREADTH_FIRST_SEARCH</a>:</div>
+<div class="line"><span class="lineno">   15</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classBreadthFirstSearch.html">BreadthFirstSearch</a>(problem);</div>
+<div class="line"><span class="lineno">   16</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a">A_STAR</a>:</div>
+<div class="line"><span class="lineno">   17</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classAStarSearch.html">AStarSearch</a>(problem);</div>
+<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca1dc754e076ebc7b39e82867d62d46597">BEAM_SEARCH</a>:</div>
+<div class="line"><span class="lineno">   19</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classBeamSearch.html">BeamSearch</a>(problem, 2);</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   21</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">   22</span>    }</div>
+<div class="line"><span class="lineno">   23</span>}</div>
+<div class="ttc" id="aclassAStarSearch_html"><div class="ttname"><a href="classAStarSearch.html">AStarSearch</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00078">search.h:78</a></div></div>
+<div class="ttc" id="aclassBeamSearch_html"><div class="ttname"><a href="classBeamSearch.html">BeamSearch</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00089">search.h:89</a></div></div>
+<div class="ttc" id="aclassBreadthFirstSearch_html"><div class="ttname"><a href="classBreadthFirstSearch.html">BreadthFirstSearch</a></div><div class="ttdoc">Breadth-first search algorithm implementation.</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00067">search.h:67</a></div></div>
+<div class="ttc" id="asearch_8h_html_a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a"><div class="ttname"><a href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a">A_STAR</a></div><div class="ttdeci">@ A_STAR</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00105">search.h:105</a></div></div>
+<div class="ttc" id="asearch_8h_html_a6392037af25f8e3794b09ec1f0f3d2cca1dc754e076ebc7b39e82867d62d46597"><div class="ttname"><a href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca1dc754e076ebc7b39e82867d62d46597">BEAM_SEARCH</a></div><div class="ttdeci">@ BEAM_SEARCH</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00107">search.h:106</a></div></div>
+<div class="ttc" id="asearch_8h_html_a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088"><div class="ttname"><a href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088">BREADTH_FIRST_SEARCH</a></div><div class="ttdeci">@ BREADTH_FIRST_SEARCH</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00103">search.h:103</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="search_8h_source.html#l00059">A_STAR</a>, and <a class="el" href="search_8h_source.html#l00057">BREADTH_FIRST_SEARCH</a>.</p>
+<p class="reference">References <a class="el" href="search_8h_source.html#l00105">A_STAR</a>, <a class="el" href="search_8h_source.html#l00106">BEAM_SEARCH</a>, and <a class="el" href="search_8h_source.html#l00103">BREADTH_FIRST_SEARCH</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="study__path_8h_source.html#l00090">run()</a>.</p>
 
 </div>
 </div>
@@ -173,7 +193,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="search_8cpp.html">search.cpp</a></li>
-    <li class="footer">Generated on Mon Dec 16 2024 13:00:18 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 16 2024 19:00:06 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
