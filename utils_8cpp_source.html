@@ -117,12 +117,15 @@ $(document).ready(function(){initNavTree('utils_8cpp_source.html',''); initResiz
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classNodeComparator.html#a96235187f348e9af78e23bb852df974d">   11</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classNodeComparator.html#a96235187f348e9af78e23bb852df974d">operator()</a>(<span class="keyword">const</span> std::shared_ptr&lt;Node&gt; &amp;a, <span class="keyword">const</span> std::shared_ptr&lt;Node&gt; &amp;b) {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordflow">return</span> a-&gt;path_cost + a-&gt;heuristic &gt; b-&gt;path_cost + b-&gt;heuristic;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordflow">if</span> (!a || !b) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Null node pointer in comparison&quot;</span>);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">return</span> a-&gt;path_cost + a-&gt;heuristic &gt; b-&gt;path_cost + b-&gt;heuristic;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    }</div>
 </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="ttc" id="aclassNodeComparator_html"><div class="ttname"><a href="classNodeComparator.html">NodeComparator</a></div><div class="ttdef"><b>Definition</b> <a href="utils_8cpp_source.html#l00009">utils.cpp:9</a></div></div>
 <div class="ttc" id="aclassNodeComparator_html_a96235187f348e9af78e23bb852df974d"><div class="ttname"><a href="classNodeComparator.html#a96235187f348e9af78e23bb852df974d">NodeComparator::operator()</a></div><div class="ttdeci">bool operator()(const std::shared_ptr&lt; Node &gt; &amp;a, const std::shared_ptr&lt; Node &gt; &amp;b)</div><div class="ttdef"><b>Definition</b> <a href="utils_8cpp_source.html#l00011">utils.cpp:11</a></div></div>
 <div class="ttc" id="asearch_8h_html"><div class="ttname"><a href="search_8h.html">search.h</a></div></div>
@@ -132,7 +135,7 @@ $(document).ready(function(){initNavTree('utils_8cpp_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="utils_8cpp.html">utils.cpp</a></li>
-    <li class="footer">Generated on Mon Dec 16 2024 12:40:56 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 16 2024 12:46:12 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

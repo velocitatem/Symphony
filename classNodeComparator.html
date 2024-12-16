@@ -148,8 +148,11 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="utils_8cpp_source.html#l00011">11</a> of file <a class="el" href="utils_8cpp_source.html">utils.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   11</span>                                                                                {</div>
-<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">return</span> a-&gt;path_cost + a-&gt;heuristic &gt; b-&gt;path_cost + b-&gt;heuristic;</div>
-<div class="line"><span class="lineno">   13</span>    }</div>
+<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">if</span> (!a || !b) {</div>
+<div class="line"><span class="lineno">   13</span>                <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Null node pointer in comparison&quot;</span>);</div>
+<div class="line"><span class="lineno">   14</span>        }</div>
+<div class="line"><span class="lineno">   15</span>        <span class="keywordflow">return</span> a-&gt;path_cost + a-&gt;heuristic &gt; b-&gt;path_cost + b-&gt;heuristic;</div>
+<div class="line"><span class="lineno">   16</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -162,7 +165,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classNodeComparator.html">NodeComparator</a></li>
-    <li class="footer">Generated on Mon Dec 16 2024 12:40:56 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 16 2024 12:46:12 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
