@@ -1,7 +1,3 @@
-//
-// Created by velocitatem on 12/15/24.
-//
-
 #ifndef SEARCH_H
 #define SEARCH_H
 
@@ -9,6 +5,7 @@
 #include <map>
 #include "definitions.h"
 #include <memory>
+
 
 class Node {
 public:
@@ -49,8 +46,12 @@ public:
     ~BreadthFirstSearch();
 };
 
-
-
+class AStarSearch : public Search {
+public:
+    AStarSearch(Problem *problem) : Search(problem) {}
+    std::shared_ptr<Node> search() override;
+    ~AStarSearch();
+};
 
 enum SearchAlgorithmIndex {
     BREADTH_FIRST_SEARCH,
@@ -58,9 +59,6 @@ enum SearchAlgorithmIndex {
     A_STAR
 };
 
-Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *problem);
-
-
-
+Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *problem); // DEFINED IN search.cpp
 
 #endif //SEARCH_H

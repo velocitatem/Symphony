@@ -1,7 +1,3 @@
-//
-// Created by velocitatem on 12/15/24.
-//
-
 #include "search.h"
 #include <iostream>
 
@@ -192,6 +188,24 @@ int main () {
 
         delete search;
 
+    }
+
+    {
+        MazeProblem maze_problem;
+        Search *search = create_search(SearchAlgorithmIndex::A_STAR, &maze_problem);
+        auto node = search->search();
+
+        if (node) {
+            std::cout << "Solution found using A*!" << std::endl;
+            State *maze_state = node->state.get();
+            maze_state->print();
+            Solution solution(node.get());
+            solution.print();
+        } else {
+            std::cout << "Solution not found using A*!" << std::endl;
+        }
+
+        delete search;
     }
 
 }
