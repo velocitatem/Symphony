@@ -32,6 +32,7 @@ jobs:
             "libgtest-dev" \
             "libjsoncpp-dev" \
             "libargparse-dev" \
+            "nlohmann-json3-dev" \
             "doxygen" 
           do
             sudo apt-get install -y $pkg || exit 1
