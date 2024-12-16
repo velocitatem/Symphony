@@ -128,9 +128,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3518e0e92160f850ecf123cf0196ab4d" id="r_a3518e0e92160f850ecf123cf0196ab4d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a3518e0e92160f850ecf123cf0196ab4d">goal_test</a> (<a class="el" href="classState.html">State</a> *state)=0</td></tr>
 <tr class="memdesc:a3518e0e92160f850ecf123cf0196ab4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if a given state satisfies the goal condition.  <br /></td></tr>
 <tr class="separator:a3518e0e92160f850ecf123cf0196ab4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f127b18e73c26fc3b9bcb4eee7e729d" id="r_a4f127b18e73c26fc3b9bcb4eee7e729d"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a4f127b18e73c26fc3b9bcb4eee7e729d">actions</a> (std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt; state)=0</td></tr>
-<tr class="memdesc:a4f127b18e73c26fc3b9bcb4eee7e729d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the set of actions applicable to a given state.  <br /></td></tr>
-<tr class="separator:a4f127b18e73c26fc3b9bcb4eee7e729d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9de3b336dc02ff15d26859d5d1166905" id="r_a9de3b336dc02ff15d26859d5d1166905"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::shared_ptr&lt; <a class="el" href="classAction.html">Action</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a9de3b336dc02ff15d26859d5d1166905">actions</a> (std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt; state)=0</td></tr>
+<tr class="memdesc:a9de3b336dc02ff15d26859d5d1166905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the set of actions applicable to a given state.  <br /></td></tr>
+<tr class="separator:a9de3b336dc02ff15d26859d5d1166905"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dd302f1a4c91bc18bb94c3d5889ae92" id="r_a7dd302f1a4c91bc18bb94c3d5889ae92"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a7dd302f1a4c91bc18bb94c3d5889ae92">heuristic</a> (<a class="el" href="classState.html">State</a> *state)=0</td></tr>
 <tr class="memdesc:a7dd302f1a4c91bc18bb94c3d5889ae92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a heuristic estimate for a given state.  <br /></td></tr>
 <tr class="separator:a7dd302f1a4c91bc18bb94c3d5889ae92"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -208,8 +208,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4f127b18e73c26fc3b9bcb4eee7e729d" name="a4f127b18e73c26fc3b9bcb4eee7e729d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f127b18e73c26fc3b9bcb4eee7e729d">&#9670;&#160;</a></span>actions()</h2>
+<a id="a9de3b336dc02ff15d26859d5d1166905" name="a9de3b336dc02ff15d26859d5d1166905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9de3b336dc02ff15d26859d5d1166905">&#9670;&#160;</a></span>actions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,7 +218,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; Problem::actions </td>
+          <td class="memname">virtual std::vector&lt; std::shared_ptr&lt; <a class="el" href="classAction.html">Action</a> &gt; &gt; Problem::actions </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt;&#160;</td>
           <td class="paramname"><em>state</em></td><td>)</td>
@@ -242,7 +242,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of actions applicable to the given state. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00039">BreadthFirstSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the state satisfies the goal condition, false otherwise. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00039">BreadthFirstSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -318,7 +318,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A heuristic estimate of the cost to reach the goal from the given state. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00039">BreadthFirstSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -354,7 +354,7 @@ Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="definitions_8h_source.html#l00113">initial_state_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00038">BreadthFirstSearch::search()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="search_8cpp_source.html#l00039">BreadthFirstSearch::search()</a>.</p>
 
 </div>
 </div>
@@ -388,7 +388,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classProblem.html">Problem</a></li>
-    <li class="footer">Generated on Mon Dec 16 2024 10:39:33 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 16 2024 11:10:17 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
