@@ -34,4 +34,6 @@ digraph "src/search.cpp"
   Node1 -> Node6 [id="edge15_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node13 [id="edge16_Node000001_Node000013",color="steelblue1",style="solid",tooltip=" "];
   Node13 [id="Node000013",label="functional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node1 -> Node14 [id="edge17_Node000001_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="omp.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
 }

@@ -110,6 +110,7 @@ $(document).ready(function(){initNavTree('search_8cpp.html',''); initResizable()
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for search.cpp:</div>
 <div class="dyncontent">
@@ -161,19 +162,19 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the created search object. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00012">12</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                                     {</div>
-<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">switch</span> (search_algorithm_index) {</div>
-<div class="line"><span class="lineno">   14</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088">BREADTH_FIRST_SEARCH</a>:</div>
-<div class="line"><span class="lineno">   15</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classBreadthFirstSearch.html">BreadthFirstSearch</a>(problem);</div>
-<div class="line"><span class="lineno">   16</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a">A_STAR</a>:</div>
-<div class="line"><span class="lineno">   17</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classAStarSearch.html">AStarSearch</a>(problem);</div>
-<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca1dc754e076ebc7b39e82867d62d46597">BEAM_SEARCH</a>:</div>
-<div class="line"><span class="lineno">   19</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classBeamSearch.html">BeamSearch</a>(problem, 2);</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   21</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">   22</span>    }</div>
-<div class="line"><span class="lineno">   23</span>}</div>
+<p class="definition">Definition at line <a class="el" href="search_8cpp_source.html#l00013">13</a> of file <a class="el" href="search_8cpp_source.html">search.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>                                                                                     {</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">switch</span> (search_algorithm_index) {</div>
+<div class="line"><span class="lineno">   15</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca54e159c7c13555b133b7328f699e9088">BREADTH_FIRST_SEARCH</a>:</div>
+<div class="line"><span class="lineno">   16</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classBreadthFirstSearch.html">BreadthFirstSearch</a>(problem);</div>
+<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca034d7f8694bbea57f568b23a858b167a">A_STAR</a>:</div>
+<div class="line"><span class="lineno">   18</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classAStarSearch.html">AStarSearch</a>(problem);</div>
+<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="search_8h.html#a6392037af25f8e3794b09ec1f0f3d2cca1dc754e076ebc7b39e82867d62d46597">BEAM_SEARCH</a>:</div>
+<div class="line"><span class="lineno">   20</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classBeamSearch.html">BeamSearch</a>(problem, 2);</div>
+<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   22</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">   23</span>    }</div>
+<div class="line"><span class="lineno">   24</span>}</div>
 <div class="ttc" id="aclassAStarSearch_html"><div class="ttname"><a href="classAStarSearch.html">AStarSearch</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00078">search.h:78</a></div></div>
 <div class="ttc" id="aclassBeamSearch_html"><div class="ttname"><a href="classBeamSearch.html">BeamSearch</a></div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00089">search.h:89</a></div></div>
 <div class="ttc" id="aclassBreadthFirstSearch_html"><div class="ttname"><a href="classBreadthFirstSearch.html">BreadthFirstSearch</a></div><div class="ttdoc">Breadth-first search algorithm implementation.</div><div class="ttdef"><b>Definition</b> <a href="search_8h_source.html#l00067">search.h:67</a></div></div>
@@ -193,7 +194,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="search_8cpp.html">search.cpp</a></li>
-    <li class="footer">Generated on Mon Dec 16 2024 19:00:06 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Jan 13 2025 12:33:00 for Symphony by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
