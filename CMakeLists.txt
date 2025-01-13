@@ -14,6 +14,12 @@ add_library(symphony SHARED
 
 target_include_directories(symphony PUBLIC include)
 
+# add openmp
+find_package(OpenMP)
+if(OpenMP_CXX_FOUND)
+    target_link_libraries(symphony PUBLIC OpenMP::OpenMP_CXX)
+endif()
+
 enable_testing()
 
 add_subdirectory(tests)
