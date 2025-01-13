@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <vector>
 #include <functional>
+#include <omp.h>
 
 
 Search *create_search(SearchAlgorithmIndex search_algorithm_index, Problem *problem) {
@@ -60,6 +61,7 @@ std::shared_ptr<Node> BreadthFirstSearch::search() {
         if (problem->goal_test(state)) {
             return node;
         }
+        #pragma omp parallel for shared(frontier) schedule(dynamic) if (frontier.size() > 1000)
         for (const auto &action : problem->actions(node->state)) {
             auto child = std::make_shared<Node>(
                 std::shared_ptr<Node>(node),
